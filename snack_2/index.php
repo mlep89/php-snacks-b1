@@ -18,25 +18,17 @@
     <p>Il mio indirizzo mail è <?php echo $mail ?></p>
     <p>La mia età è <?php echo $age ?></p>
 
-    <?php
-    if (strlen($name) <= 3) {
-        echo "Accesso negato";
-    }
-    else { echo "Accesso riuscito"; }
-    ?>
+    
 
-    <?php
-    if (is_numeric($age)) {
-        echo "Accesso riuscito";
-    }
-    else { echo "Accesso negato"; }
-    ?>
+    
 
     <?php
     $needle = stripos($mail, '@');
     $needle2= stripos($mail, '.');
+    $newName = strlen($name);
+    $newAge = is_numeric($age);
 
-    if ($needle === false || $needle2 === false) {
+    if ($needle === false || $needle2 === false || $newName <= 3 || $newAge === false) {
         echo "Accesso negato";
     }
     else { echo "Accesso riuscito"; }
